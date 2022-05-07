@@ -1,0 +1,44 @@
+name: Node.js CI
+'on':
+  push:
+    branches:
+      - master
+      - beta
+      - renovate/**
+  pull_request:
+    types:
+      - opened
+      - synchronize
+env:
+  FORCE_COLOR: 1
+  NPM_CONFIG_COLOR: always
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm clean-install
+      - run: npm test
+      - uses: codecov/codecov-action@v3
+  trigger-release:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - verify
+    steps:
+      - uses: octokit/request-action@v2.x
+        with:
+          route: >-
+            POST
+            /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+          owner: form8ion
+          repo: vitest
+          ref: ${{ github.ref }}
+          workflow_id: release.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}

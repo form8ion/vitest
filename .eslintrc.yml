@@ -1,0 +1,5 @@
+root: true
+extends:
+  - '@form8ion'
+  - '@form8ion/cucumber'
+  - '@form8ion/mocha'
