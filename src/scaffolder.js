@@ -1,3 +1,6 @@
 export default function () {
-  return undefined;
+  return {
+    devDependencies: ['vitest'],
+    scripts: {'test:unit:base': 'DEBUG=any vitest run'}
+  };
 }
