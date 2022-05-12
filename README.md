@@ -14,6 +14,11 @@ test framework plugin for form8ion
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
+  * [API](#api)
+    * [scaffold](#scaffold)
+      * [`projectRoot` __string__ (_required_)](#projectroot-string-required)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -49,6 +54,19 @@ import {scaffold} from './lib/index.cjs';
   await scaffold({projectRoot: process.cwd()});
 })();
 ```
+
+### API
+
+#### scaffold
+
+Scaffolder for configuring [Vitest](https://vitest.dev/) as the unit-test
+framework for the project
+
+Takes a single options object as an argument, containing:
+
+##### `projectRoot` __string__ (_required_)
+
+path to the root of the project
 
 ## Contributing
 
