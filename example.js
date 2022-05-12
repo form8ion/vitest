@@ -4,7 +4,7 @@ import stubbedFs from 'mock-fs';
 import {scaffold} from './lib/index.cjs';
 
 // remark-usage-ignore-next
-stubbedFs();
+stubbedFs({templates: {'canary-test.js': ''}});
 
 // #### Execute
 
