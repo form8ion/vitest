@@ -4,5 +4,5 @@ import {assert} from 'chai';
 Then('dependencies are listed', async function () {
   const {devDependencies} = this.result;
 
-  assert.deepEqual(devDependencies, ['vitest']);
+  assert.deepEqual(devDependencies, ['vitest', 'deep-equal']);
 });
