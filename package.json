@@ -78,7 +78,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.77.2",
     "rollup-plugin-auto-external": "2.0.0",
-    "vitest": "0.20.2"
+    "vitest": "0.20.3"
   },
   "dependencies": {
     "make-dir": "^3.1.0"
