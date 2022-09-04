@@ -3,6 +3,7 @@ import {promises as fs} from 'fs';
 
 import {describe, it, assert, expect, vi, beforeEach, afterEach} from 'vitest';
 import any from '@travi/any';
+import {when} from 'jest-when';
 
 import * as makeDir from '../thirdparty-wrappers/make-dir';
 import scaffold from './scaffolder';
@@ -13,11 +14,7 @@ describe('scaffolder', () => {
 
   beforeEach(() => {
     vi.spyOn(makeDir, 'default');
-    makeDir.default.mockImplementation(pathToCreate => new Promise(resolve => {
-      if (`${projectRoot}/src` === pathToCreate) {
-        resolve(pathToCreatedSrcDirectory);
-      }
-    }));
+    when(makeDir.default).calledWith(`${projectRoot}/src`).mockResolvedValue(pathToCreatedSrcDirectory);
     vi.spyOn(fs, 'copyFile');
     fs.copyFile.mockImplementation(() => Promise.resolve());
   });
