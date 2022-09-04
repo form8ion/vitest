@@ -12,7 +12,7 @@ export default async function ({projectRoot}) {
   );
 
   return {
-    devDependencies: ['vitest', 'deep-equal'],
+    devDependencies: ['vitest', 'jest-when'],
     scripts: {'test:unit:base': 'DEBUG=any vitest run'},
     testFilenamePattern: 'src/**/*.test.js'
   };

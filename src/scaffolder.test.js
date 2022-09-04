@@ -32,7 +32,7 @@ describe('scaffolder', () => {
     );
 
     assert.deepEqual(scripts, {'test:unit:base': 'DEBUG=any vitest run'});
-    assert.deepEqual(devDependencies, ['vitest', 'deep-equal']);
+    assert.deepEqual(devDependencies, ['vitest', 'jest-when']);
     assert.equal(testFilenamePattern, 'src/**/*.test.js');
   });
 });
