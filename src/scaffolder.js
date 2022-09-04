@@ -1,7 +1,9 @@
-import path from 'path';
-import {promises as fs} from 'fs';
-
+import path from 'node:path';
+import {promises as fs} from 'node:fs';
+import filedirname from 'filedirname';
 import makeDir from '../thirdparty-wrappers/make-dir';
+
+const [, __dirname] = filedirname();
 
 export default async function ({projectRoot}) {
   const createdSrcDirectory = await makeDir(`${projectRoot}/src`);
@@ -12,7 +14,7 @@ export default async function ({projectRoot}) {
   );
 
   return {
-    devDependencies: ['vitest', 'deep-equal'],
+    devDependencies: ['vitest', 'jest-when'],
     scripts: {'test:unit:base': 'DEBUG=any vitest run'},
     testFilenamePattern: 'src/**/*.test.js'
   };
