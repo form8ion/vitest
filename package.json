@@ -2,24 +2,19 @@
   "name": "@form8ion/vitest",
   "description": "test framework plugin for form8ion",
   "license": "MIT",
-  "type": "commonjs",
   "version": "0.0.0-semantically-released",
-  "files": [
-    "example.js",
-    "lib/",
-    "templates/"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16"
   },
+  "author": "Matt Travi <npm@travi.org> (https://matt.travi.org)",
+  "repository": "form8ion/vitest",
+  "bugs": "https://github.com/form8ion/vitest/issues",
+  "homepage": "https://npm.im/@form8ion/vitest",
   "runkitExampleFilename": "./example.js",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
   "sideEffects": false,
-  "repository": "form8ion/vitest",
-  "bugs": "https://github.com/form8ion/vitest/issues",
-  "homepage": "https://npm.im/@form8ion/vitest",
-  "author": "Matt Travi <npm@travi.org> (https://matt.travi.org)",
   "scripts": {
     "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*",
     "pretest:integration:base": "preview",
@@ -46,7 +41,19 @@
     "pregenerate:md": "run-s build",
     "lint:sensitive": "ban",
     "prepare": "husky install",
-    "lint:peer": "npm ls >/dev/null"
+    "lint:peer": "npm ls >/dev/null",
+    "lint:engines": "ls-engines"
+  },
+  "files": [
+    "example.js",
+    "lib/",
+    "templates/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "make-dir": "^3.1.0"
   },
   "devDependencies": {
     "@babel/register": "7.18.9",
@@ -70,6 +77,7 @@
     "husky": "8.0.1",
     "jest-when": "3.5.1",
     "lockfile-lint": "4.8.0",
+    "ls-engines": "0.7.0",
     "mock-fs": "5.1.4",
     "npm-run-all": "4.1.5",
     "package-preview": "4.0.0",
@@ -80,8 +88,5 @@
     "rollup": "2.79.0",
     "rollup-plugin-auto-external": "2.0.0",
     "vitest": "0.23.0"
-  },
-  "dependencies": {
-    "make-dir": "^3.1.0"
   }
 }
