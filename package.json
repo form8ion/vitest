@@ -12,15 +12,19 @@
   "bugs": "https://github.com/form8ion/vitest/issues",
   "homepage": "https://npm.im/@form8ion/vitest",
   "runkitExampleFilename": "./example.js",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.es.js",
+  "exports": {
+    "require": "./lib/index.js",
+    "import": "./lib/index.mjs"
+  },
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
   "sideEffects": false,
   "scripts": {
     "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*",
-    "pretest:integration:base": "preview",
+    "pretest:integration:base": "run-s build",
     "lint:gherkin": "gherkin-lint",
     "test:integration": "run-s 'test:integration:base -- --profile noWip'",
-    "test:integration:base": "NODE_OPTIONS=--enable-source-maps DEBUG=any cucumber-js test/integration --profile base",
+    "test:integration:base": "NODE_OPTIONS=--enable-source-maps DEBUG=any cucumber-js test/integration",
     "test:integration:debug": "DEBUG=test run-s test:integration",
     "test:integration:wip": "run-s 'test:integration:base -- --profile wip'",
     "test:integration:wip:debug": "DEBUG=test run-s 'test:integration:wip'",
@@ -53,6 +57,7 @@
     "access": "public"
   },
   "dependencies": {
+    "filedirname": "^2.7.0",
     "make-dir": "^3.1.0"
   },
   "devDependencies": {
@@ -80,7 +85,6 @@
     "ls-engines": "0.7.0",
     "mock-fs": "5.1.4",
     "npm-run-all": "4.1.5",
-    "package-preview": "4.0.0",
     "remark-cli": "11.0.0",
     "remark-toc": "8.0.1",
     "remark-usage": "10.0.1",
