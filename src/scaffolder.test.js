@@ -30,6 +30,10 @@ describe('scaffolder', () => {
       path.resolve(__dirname, '..', 'templates', 'canary-test.js'),
       `${pathToCreatedSrcDirectory}/canary.test.js`
     );
+    expect(fs.copyFile).toBeCalledWith(
+      path.resolve(__dirname, '..', 'templates', 'config.ts'),
+      `${projectRoot}/vitest.config.ts`
+    );
 
     assert.deepEqual(scripts, {'test:unit:base': 'DEBUG=any vitest run'});
     assert.deepEqual(devDependencies, ['vitest', 'jest-when']);

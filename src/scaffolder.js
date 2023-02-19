@@ -8,10 +8,10 @@ const [, __dirname] = filedirname();
 export default async function ({projectRoot}) {
   const createdSrcDirectory = await makeDir(`${projectRoot}/src`);
 
-  await fs.copyFile(
-    path.resolve(__dirname, '..', 'templates', 'canary-test.js'),
-    `${createdSrcDirectory}/canary.test.js`
-  );
+  await Promise.all([
+    fs.copyFile(path.resolve(__dirname, '..', 'templates', 'canary-test.js'), `${createdSrcDirectory}/canary.test.js`),
+    fs.copyFile(path.resolve(__dirname, '..', 'templates', 'config.ts'), `${projectRoot}/vitest.config.ts`)
+  ]);
 
   return {
     devDependencies: ['vitest', 'jest-when'],
