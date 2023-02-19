@@ -20,6 +20,8 @@ jobs:
         node:
           - 16.0.0
           - 16
+          - 18
+          - 19
     steps:
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
       - name: Setup node
@@ -40,22 +42,11 @@ jobs:
           cache: npm
       - run: npm clean-install
       - run: npm test
-      - uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # v3
-  trigger-release:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+      - uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70
+  release:
     needs:
       - verify
       - verify-matrix
-    steps:
-      - uses: octokit/request-action@v2.x
-        with:
-          route: >-
-            POST
-            /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
-          owner: form8ion
-          repo: vitest
-          ref: ${{ github.ref }}
-          workflow_id: release.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+    uses: form8ion/.github/.github/workflows/release-package.yml@master
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
