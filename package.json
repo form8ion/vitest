@@ -54,7 +54,8 @@
     "templates/"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "dependencies": {
     "filedirname": "^2.7.0",
