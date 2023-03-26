@@ -3,7 +3,7 @@
   "description": "test framework plugin for form8ion",
   "license": "MIT",
   "version": "0.0.0-semantically-released",
-  "type": "commonjs",
+  "type": "module",
   "engines": {
     "node": ">=16"
   },
@@ -12,12 +12,8 @@
   "bugs": "https://github.com/form8ion/vitest/issues",
   "homepage": "https://npm.im/@form8ion/vitest",
   "runkitExampleFilename": "./example.js",
-  "exports": {
-    "require": "./lib/index.js",
-    "import": "./lib/index.mjs"
-  },
-  "main": "./lib/index.js",
-  "module": "./lib/index.mjs",
+  "exports": "./lib/index.mjs",
+  "main": "./lib/index.mjs",
   "sideEffects": false,
   "scripts": {
     "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*",
@@ -41,6 +37,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "run-s lint:js -- --fix",
     "lint:md": "remark . --frail",
+    "lint:publish": "publint",
     "generate:md": "remark . --output",
     "pregenerate:md": "run-s build",
     "lint:sensitive": "ban",
@@ -59,21 +56,18 @@
   },
   "dependencies": {
     "filedirname": "^2.7.0",
-    "make-dir": "^3.1.0"
+    "make-dir": "^3.1.0",
+    "publint": "^0.1.11"
   },
   "devDependencies": {
-    "@babel/register": "7.21.0",
     "@cucumber/cucumber": "9.0.1",
-    "@form8ion/babel-preset": "1.6.99",
     "@form8ion/commitlint-config": "1.0.46",
     "@form8ion/core": "2.0.0",
     "@form8ion/eslint-config": "5.0.27",
     "@form8ion/eslint-config-cucumber": "1.4.1",
     "@form8ion/eslint-config-mocha": "2.0.3",
     "@form8ion/remark-lint-preset": "5.0.0",
-    "@rollup/plugin-babel": "6.0.3",
     "@travi/any": "2.1.8",
-    "babel-plugin-istanbul": "6.1.1",
     "ban-sensitive-files": "1.9.18",
     "c8": "7.13.0",
     "chai": "4.3.7",

@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {After, When} from '@cucumber/cucumber';
 import stubbedFs from 'mock-fs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));        // eslint-disable-line no-underscore-dangle
 const pathToProjectRoot = [__dirname, '..', '..', '..', '..'];
 const stubbedNodeModules = stubbedFs.load(resolve(...pathToProjectRoot, 'node_modules'));
 const stubbedTemplates = stubbedFs.load(resolve(...pathToProjectRoot, 'templates'));
