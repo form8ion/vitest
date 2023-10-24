@@ -37,7 +37,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "run-s lint:js -- --fix",
     "lint:md": "remark . --frail",
-    "lint:publish": "publint",
+    "lint:publish": "publint --strict",
     "generate:md": "remark . --output",
     "pregenerate:md": "run-s build",
     "lint:sensitive": "ban",
