@@ -55,7 +55,7 @@
     "provenance": true
   },
   "dependencies": {
-    "filedirname": "^2.7.0",
+    "filedirname": "^3.0.0",
     "make-dir": "^4.0.0"
   },
   "devDependencies": {
