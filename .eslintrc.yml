@@ -4,8 +4,3 @@ extends:
   - '@form8ion'
   - '@form8ion/cucumber'
   - '@form8ion/mocha'
-
-rules:
-  import/extensions:
-    - warn
-    - ignorePackages

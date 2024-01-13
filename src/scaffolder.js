@@ -1,7 +1,8 @@
 import path from 'node:path';
 import {promises as fs} from 'node:fs';
 import filedirname from 'filedirname';
-import makeDir from '../thirdparty-wrappers/make-dir';
+
+import makeDir from '../thirdparty-wrappers/make-dir.js';
 
 const [, __dirname] = filedirname();
 

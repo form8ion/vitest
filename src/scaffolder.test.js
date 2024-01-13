@@ -5,8 +5,8 @@ import {describe, it, assert, expect, vi, beforeEach, afterEach} from 'vitest';
 import any from '@travi/any';
 import {when} from 'jest-when';
 
-import * as makeDir from '../thirdparty-wrappers/make-dir';
-import scaffold from './scaffolder';
+import * as makeDir from '../thirdparty-wrappers/make-dir.js';
+import scaffold from './scaffolder.js';
 
 describe('scaffolder', () => {
   const projectRoot = any.string();
