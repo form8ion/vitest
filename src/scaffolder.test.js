@@ -1,12 +1,15 @@
 import path from 'path';
-import {promises as fs} from 'fs';
+import {promises as fs} from 'node:fs';
 
-import {describe, it, assert, expect, vi, beforeEach, afterEach} from 'vitest';
+import {assert, beforeEach, describe, expect, it, vi} from 'vitest';
 import any from '@travi/any';
 import {when} from 'jest-when';
 
 import * as makeDir from '../thirdparty-wrappers/make-dir.js';
+import scaffoldConfig from './config-scaffolder.js';
 import scaffold from './scaffolder.js';
+
+vi.mock('./config-scaffolder.js');
 
 describe('scaffolder', () => {
   const projectRoot = any.string();
@@ -19,21 +22,15 @@ describe('scaffolder', () => {
     fs.copyFile.mockImplementation(() => Promise.resolve());
   });
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('that core details are defined', async () => {
-    const {devDependencies, scripts, testFilenamePattern} = await scaffold({projectRoot});
+    const dialect = any.word();
+    const {devDependencies, scripts, testFilenamePattern} = await scaffold({projectRoot, dialect});
 
     expect(fs.copyFile).toBeCalledWith(
       path.resolve(__dirname, '..', 'templates', 'canary-test.js'),
       `${pathToCreatedSrcDirectory}/canary.test.js`
     );
-    expect(fs.copyFile).toBeCalledWith(
-      path.resolve(__dirname, '..', 'templates', 'config.ts'),
-      `${projectRoot}/vitest.config.ts`
-    );
+    expect(scaffoldConfig).toBeCalledWith({projectRoot, dialect});
 
     assert.deepEqual(scripts, {'test:unit:base': 'DEBUG=any vitest run'});
     assert.deepEqual(devDependencies, ['vitest', 'jest-when']);

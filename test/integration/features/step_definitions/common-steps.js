@@ -22,5 +22,5 @@ When('the project is scaffolded', async function () {
     templates: stubbedTemplates
   });
 
-  this.result = await scaffold({projectRoot: process.cwd()});
+  this.result = await scaffold({projectRoot: process.cwd(), dialect: this.dialect});
 });

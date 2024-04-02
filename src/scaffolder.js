@@ -3,15 +3,16 @@ import {promises as fs} from 'node:fs';
 import filedirname from 'filedirname';
 
 import makeDir from '../thirdparty-wrappers/make-dir.js';
+import scaffoldConfig from './config-scaffolder.js';
 
 const [, __dirname] = filedirname();
 
-export default async function ({projectRoot}) {
+export default async function ({projectRoot, dialect}) {
   const createdSrcDirectory = await makeDir(`${projectRoot}/src`);
 
   await Promise.all([
     fs.copyFile(path.resolve(__dirname, '..', 'templates', 'canary-test.js'), `${createdSrcDirectory}/canary.test.js`),
-    fs.copyFile(path.resolve(__dirname, '..', 'templates', 'config.ts'), `${projectRoot}/vitest.config.ts`)
+    scaffoldConfig({projectRoot, dialect})
   ]);
 
   return {

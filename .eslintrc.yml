@@ -4,3 +4,11 @@ extends:
   - '@form8ion'
   - '@form8ion/cucumber'
   - '@form8ion/mocha'
+
+overrides:
+  - files:
+      - vitest.config.js
+      - templates/config.js
+    rules:
+      import/no-unresolved: off
+      no-console: off
