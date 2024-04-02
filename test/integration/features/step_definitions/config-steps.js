@@ -10,7 +10,12 @@ Then('vitest is configured', async function () {
     vitestConfig,
     `import {defineConfig} from 'vitest/config';
 
-export default defineConfig({test: {globals: true}});
+export default defineConfig({
+  test: {
+    globals: true,
+    restoreMocks: true
+  }
+});
 `
   );
 });
