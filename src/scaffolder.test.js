@@ -24,7 +24,7 @@ describe('scaffolder', () => {
 
   it('that core details are defined', async () => {
     const dialect = any.word();
-    const {devDependencies, scripts, testFilenamePattern} = await scaffold({projectRoot, dialect});
+    const {dependencies, scripts, testFilenamePattern} = await scaffold({projectRoot, dialect});
 
     expect(fs.copyFile).toBeCalledWith(
       path.resolve(__dirname, '..', 'templates', 'canary-test.js'),
@@ -33,7 +33,7 @@ describe('scaffolder', () => {
     expect(scaffoldConfig).toBeCalledWith({projectRoot, dialect});
 
     assert.deepEqual(scripts, {'test:unit:base': 'DEBUG=any vitest run'});
-    assert.deepEqual(devDependencies, ['vitest', 'jest-when']);
+    assert.deepEqual(dependencies.javascript.development, ['vitest', 'jest-when']);
     assert.equal(testFilenamePattern, 'src/**/*.test.js');
   });
 });

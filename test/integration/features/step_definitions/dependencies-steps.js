@@ -2,7 +2,7 @@ import {Then} from '@cucumber/cucumber';
 import {assert} from 'chai';
 
 Then('dependencies are listed', async function () {
-  const {devDependencies} = this.result;
+  const {dependencies} = this.result;
 
-  assert.deepEqual(devDependencies, ['vitest', 'jest-when']);
+  assert.deepEqual(dependencies.javascript.development, ['vitest', 'jest-when']);
 });
