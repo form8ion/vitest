@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@form8ion/core": "^4.8.0",
-    "@form8ion/javascript-core": "^11.0.0",
+    "@form8ion/javascript-core": "^12.0.0",
     "filedirname": "^3.0.0",
     "make-dir": "^4.0.0"
   },
