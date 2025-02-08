@@ -35,7 +35,7 @@
     "test:unit:base": "DEBUG=any vitest run",
     "lint:lockfile": "lockfile-lint",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "run-s lint:js -- --fix",
+    "lint:js:fix": "run-s 'lint:js -- --fix'",
     "lint:md": "remark . --frail",
     "lint:publish": "publint --strict",
     "generate:md": "remark . --output",
