@@ -5,7 +5,7 @@
   "version": "0.0.0-semantically-released",
   "type": "module",
   "engines": {
-    "node": "^18.17 || >=20.6.1"
+    "node": "^18.19.0 || ^20.9.0 || >=22.11.0"
   },
   "author": "Matt Travi <npm@travi.org> (https://matt.travi.org)",
   "repository": "form8ion/vitest",
@@ -35,7 +35,7 @@
     "test:unit:base": "DEBUG=any vitest run",
     "lint:lockfile": "lockfile-lint",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "run-s lint:js -- --fix",
+    "lint:js:fix": "run-s 'lint:js -- --fix'",
     "lint:md": "remark . --frail",
     "lint:publish": "publint --strict",
     "generate:md": "remark . --output",
@@ -54,11 +54,11 @@
     "access": "public",
     "provenance": true
   },
+  "packageManager": "npm@11.1.0+sha512.acf301ad9b9ddba948fcb72341e2f0fcae477f56a95cc2a092934d133a7461062633cefbf93d5934a3dc0768674e2edee9f04dcfcc4bb4c327ff0e3a7d552a1b",
   "dependencies": {
     "@form8ion/core": "^4.8.0",
-    "@form8ion/javascript-core": "^11.0.0",
-    "filedirname": "^3.0.0",
-    "make-dir": "^4.0.0"
+    "@form8ion/javascript-core": "^12.0.0",
+    "filedirname": "^3.0.0"
   },
   "devDependencies": {
     "@cucumber/cucumber": "11.2.0",
