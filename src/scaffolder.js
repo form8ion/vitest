@@ -15,7 +15,7 @@ export default async function ({projectRoot, dialect}) {
   ]);
 
   return {
-    dependencies: {javascript: {development: ['vitest', 'jest-when']}},
+    dependencies: {javascript: {development: ['vitest', 'vitest-when']}},
     scripts: {'test:unit:base': 'DEBUG=any vitest run'},
     testFilenamePattern: 'src/**/*.test.js'
   };

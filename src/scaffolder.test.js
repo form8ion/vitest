@@ -30,7 +30,7 @@ describe('scaffolder', () => {
     expect(scaffoldConfig).toBeCalledWith({projectRoot, dialect});
 
     assert.deepEqual(scripts, {'test:unit:base': 'DEBUG=any vitest run'});
-    assert.deepEqual(dependencies.javascript.development, ['vitest', 'jest-when']);
+    assert.deepEqual(dependencies.javascript.development, ['vitest', 'vitest-when']);
     assert.equal(testFilenamePattern, 'src/**/*.test.js');
   });
 });

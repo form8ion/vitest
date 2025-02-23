@@ -6,7 +6,7 @@ import stubbedFs from 'mock-fs';
 import {assert} from 'chai';
 
 // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
-import {scaffold, test} from '@form8ion/vitest';
+import {scaffold, test, lift} from '@form8ion/vitest';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));        // eslint-disable-line no-underscore-dangle
 const pathToProjectRoot = [__dirname, '..', '..', '..', '..'];
@@ -36,7 +36,7 @@ When('checking for presence of vitest', async function () {
 
 When('the project is lifted', async function () {
   if (await test({projectRoot: this.projectRoot})) {
-    // this.result = await lift({projectRoot: this.projectRoot});
+    this.result = await lift({projectRoot: this.projectRoot});
   }
 });
 

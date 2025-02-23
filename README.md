@@ -47,14 +47,20 @@ $ npm install @form8ion/vitest --save-prod
 
 ```javascript
 import {dialects} from '@form8ion/javascript-core';
-import {scaffold} from '@form8ion/vitest';
+import {scaffold, test, lift} from '@form8ion/vitest';
 ```
 
 #### Execute
 
 ```javascript
 (async () => {
-  await scaffold({projectRoot: process.cwd(), dialect: dialects.ESM});
+  const projectRoot = process.cwd();
+
+  await scaffold({projectRoot, dialect: dialects.ESM});
+
+  if (await test({projectRoot})) {
+    await lift({projectRoot});
+  }
 })();
 ```
 
