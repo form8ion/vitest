@@ -58,7 +58,8 @@
   "dependencies": {
     "@form8ion/core": "^4.8.0",
     "@form8ion/javascript-core": "^12.0.0",
-    "filedirname": "^3.0.0"
+    "filedirname": "^3.0.0",
+    "tinyglobby": "^0.2.12"
   },
   "devDependencies": {
     "@cucumber/cucumber": "11.2.0",

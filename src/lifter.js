@@ -1,4 +1,7 @@
-// eslint-disable-next-line no-empty-pattern
-export default function ({}) {
+import {lift as liftCanary} from './canary/index.js';
+
+export default async function ({projectRoot}) {
+  await liftCanary({projectRoot});
+
   return {dependencies: {javascript: {development: ['vitest-when'], remove: ['jest-when']}}};
 }
