@@ -2,7 +2,7 @@ import {glob} from 'tinyglobby';
 
 import {describe, it, vi, expect} from 'vitest';
 import any from '@travi/any';
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 
 import removeCanary from './remover.js';
 import canaryExists from './tester.js';
@@ -18,8 +18,8 @@ describe('canary lifter', () => {
   it('should remove the canary test when other tests exist', async () => {
     when(glob)
       .calledWith(['src/**/*.test.js', '!src/canary.test.js'], {cwd: projectRoot})
-      .mockResolvedValue(['other-test.js']);
-    when(canaryExists).calledWith({projectRoot}).mockResolvedValue(true);
+      .thenResolve(['other-test.js']);
+    when(canaryExists).calledWith({projectRoot}).thenResolve(true);
 
     await liftCanary({projectRoot});
 
@@ -29,7 +29,7 @@ describe('canary lifter', () => {
   it(
     'should not attempt to remove the canary file when other test files exist, but the canary is already removed',
     async () => {
-      when(canaryExists).calledWith({projectRoot}).mockResolvedValue(false);
+      when(canaryExists).calledWith({projectRoot}).thenResolve(false);
 
       await liftCanary({projectRoot});
 
@@ -40,8 +40,8 @@ describe('canary lifter', () => {
   it('should not attempt to remove the canary file when other tests do not exist', async () => {
     when(glob)
       .calledWith(['src/**/*.test.js', '!src/canary.test.js'], {cwd: projectRoot})
-      .mockResolvedValue([]);
-    when(canaryExists).calledWith({projectRoot}).mockResolvedValue(true);
+      .thenResolve([]);
+    when(canaryExists).calledWith({projectRoot}).thenResolve(true);
 
     await liftCanary({projectRoot});
 

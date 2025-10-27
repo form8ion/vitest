@@ -7,7 +7,7 @@ import lift from './lifter.js';
 vi.mock('./canary/index.js');
 
 describe('lifter', () => {
-  it('should replace `jest-when` with `vitest-when`', async () => {
+  it('should replace `vitest-when` with `vitest-when`', async () => {
     const projectRoot = any.string();
 
     const {dependencies: {javascript: {development, remove}}} = await lift({projectRoot});

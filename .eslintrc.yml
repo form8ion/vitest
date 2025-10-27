@@ -3,11 +3,10 @@ root: true
 extends:
   - '@form8ion'
   - '@form8ion/cucumber'
-  - '@form8ion/mocha'
+  - '@form8ion/vitest'
 
 overrides:
   - files:
-      - vitest.config.js
-      - templates/config.js
+      - templates/canary-test.js
     rules:
-      import/no-unresolved: off
+      import/no-extraneous-dependencies: off

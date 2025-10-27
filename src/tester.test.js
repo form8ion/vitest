@@ -2,7 +2,7 @@ import {fileExists} from '@form8ion/core';
 
 import {describe, it, expect, vi} from 'vitest';
 import any from '@travi/any';
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 
 import vitestIsPresent from './tester.js';
 
@@ -18,14 +18,14 @@ describe('predicate', () => {
   });
 
   it('should return `true` if a JavaScript formatted config file is found', async () => {
-    when(fileExists).calledWith(`${projectRoot}/vitest.config.js`).mockResolvedValue(true);
+    when(fileExists).calledWith(`${projectRoot}/vitest.config.js`).thenResolve(true);
 
     expect(await vitestIsPresent({projectRoot})).toBe(true);
   });
 
   it('should return `true` if a TypeScript formatted config file is found', async () => {
-    when(fileExists).calledWith(`${projectRoot}/vitest.config.js`).mockResolvedValue(false);
-    when(fileExists).calledWith(`${projectRoot}/vitest.config.ts`).mockResolvedValue(true);
+    when(fileExists).calledWith(`${projectRoot}/vitest.config.js`).thenResolve(false);
+    when(fileExists).calledWith(`${projectRoot}/vitest.config.ts`).thenResolve(true);
 
     expect(await vitestIsPresent({projectRoot})).toBe(true);
   });
