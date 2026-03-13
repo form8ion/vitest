@@ -18,7 +18,8 @@ Then('a JetBrains run-configuration is created for unit-testing with vitest', as
     <working-dir value="$PROJECT_DIR$" />
     <vitest-options value="--run" />
     <envs />
-    <scope-kind value="ALL" />
+    <scope-kind value="DIRECTORY" />
+    <test-directory value="$PROJECT_DIR$/src" />
     <method v="2" />
   </configuration>
 </component>`

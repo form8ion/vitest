@@ -12,7 +12,8 @@ export default async function scaffoldRunConfiguration({projectRoot}) {
     <working-dir value="$PROJECT_DIR$" />
     <vitest-options value="--run" />
     <envs />
-    <scope-kind value="ALL" />
+    <scope-kind value="DIRECTORY" />
+    <test-directory value="$PROJECT_DIR$/src" />
     <method v="2" />
   </configuration>
 </component>`
