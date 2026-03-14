@@ -5,7 +5,8 @@ export default defineConfig({
     restoreMocks: true,
     mockReset: true,
     coverage: {
-      provider: 'v8'
+      provider: 'v8',
+      include: ['src/**']
     }
   }
 });
