@@ -5,7 +5,7 @@ import {dialects} from '@form8ion/javascript-core';
 
 const [, __dirname] = filedirname(import.meta.url);
 
-export default async function ({projectRoot, dialect}) {
+export default async function scaffoldConfig({projectRoot, dialect}) {
   await fs.copyFile(
     path.resolve(__dirname, '..', 'templates', 'config.js'),
     `${projectRoot}/vitest.config.${dialects.TYPESCRIPT === dialect ? 'ts' : 'js'}`
