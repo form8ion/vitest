@@ -3,7 +3,7 @@ import path from 'node:path';
 import filedirname from 'filedirname';
 import {dialects} from '@form8ion/javascript-core';
 
-const [, __dirname] = filedirname();
+const [, __dirname] = filedirname(import.meta.url);
 
 export default async function ({projectRoot, dialect}) {
   await fs.copyFile(

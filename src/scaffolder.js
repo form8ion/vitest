@@ -1,16 +1,13 @@
-import path from 'node:path';
 import {promises as fs} from 'node:fs';
-import filedirname from 'filedirname';
 
+import {scaffold as scaffoldCanary} from './canary/index.js';
 import scaffoldConfig from './config-scaffolder.js';
 
-const [, __dirname] = filedirname();
-
-export default async function ({projectRoot, dialect}) {
+export default async function scaffoldVitest({projectRoot, dialect}) {
   await fs.mkdir(`${projectRoot}/src`, {recursive: true});
 
   await Promise.all([
-    fs.copyFile(path.resolve(__dirname, '..', 'templates', 'canary-test.js'), `${projectRoot}/src/canary.test.js`),
+    scaffoldCanary({projectRoot}),
     scaffoldConfig({projectRoot, dialect})
   ]);
 
