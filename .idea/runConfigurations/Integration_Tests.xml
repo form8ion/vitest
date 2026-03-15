@@ -4,6 +4,9 @@
     <option name="myNameFilter" value="" />
     <option name="cucumberJsArguments" value="--config=cucumber.js" />
     <option name="workingDirectory" value="$PROJECT_DIR$" />
+    <envs>
+      <env name="NODE_OPTIONS" value="--enable-source-maps" />
+    </envs>
     <method v="2">
       <option name="NpmBeforeRunTask" enabled="true">
         <package-json value="$PROJECT_DIR$/package.json" />
