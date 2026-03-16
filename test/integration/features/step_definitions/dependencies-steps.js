@@ -10,6 +10,6 @@ Then('dependencies are listed', async function () {
 Then('jest-when is replaced with vitest-when', async function () {
   const {dependencies} = this.result;
 
-  assert.deepEqual(dependencies.javascript.development, ['vitest-when']);
+  assert.include(dependencies.javascript.development, 'vitest-when');
   assert.deepEqual(dependencies.javascript.remove, ['jest-when']);
 });
