@@ -7,14 +7,14 @@ import any from '@travi/any';
 
 import {scaffold as scaffoldCoverage} from './coverage/index.js';
 import scaffoldCanary from './canary/scaffolder.js';
-import scaffoldConfig from './config-scaffolder.js';
+import {scaffold as scaffoldConfig} from './config/index.js';
 import scaffold from './scaffolder.js';
 
 vi.mock('node:fs');
 vi.mock('deepmerge');
 vi.mock('./coverage/scaffolder.js');
 vi.mock('./canary/scaffolder.js');
-vi.mock('./config-scaffolder.js');
+vi.mock('./config/index.js');
 
 describe('scaffolder', () => {
   const projectRoot = any.string();

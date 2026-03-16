@@ -5,7 +5,7 @@ import {dialects} from '@form8ion/javascript-core';
 import any from '@travi/any';
 import {describe, vi, expect, it} from 'vitest';
 
-import scaffoldConfig from './config-scaffolder.js';
+import scaffoldConfig from './scaffolder.js';
 
 vi.mock('node:fs');
 

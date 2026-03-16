@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge';
 
 import {scaffold as scaffoldCoverage} from './coverage/index.js';
 import {scaffold as scaffoldCanary} from './canary/index.js';
-import scaffoldConfig from './config-scaffolder.js';
+import {scaffold as scaffoldConfig} from './config/index.js';
 
 export default async function scaffoldVitest({projectRoot, dialect}) {
   await fs.mkdir(`${projectRoot}/src`, {recursive: true});
