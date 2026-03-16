@@ -7,7 +7,8 @@ describe('coverage scaffolder', () => {
     expect(await scaffoldCoverage()).toEqual({
       dependencies: {javascript: {development: ['@vitest/coverage-v8']}},
       scripts: {'test:unit': "run-s 'test:unit:base -- --coverage'"},
-      vcsIgnore: {directories: ['/coverage/']}
+      vcsIgnore: {directories: ['/coverage/']},
+      eslint: {ignore: {directories: ['/coverage/']}}
     });
   });
 });
