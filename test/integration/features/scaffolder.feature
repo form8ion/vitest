@@ -15,3 +15,4 @@ Feature: Scaffolder
     And dependencies are listed
     And a canary test file exists
     And vitest is configured using a "js" extension
+    And built-in coverage should be enabled
