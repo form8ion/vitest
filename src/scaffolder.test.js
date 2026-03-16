@@ -29,7 +29,8 @@ describe('scaffolder', () => {
         {
           dependencies: {javascript: {development: ['vitest', 'vitest-when']}},
           scripts: {'test:unit:base': 'DEBUG=any vitest run'},
-          testFilenamePattern: 'src/**/*.test.js'
+          testFilenamePattern: 'src/**/*.test.js',
+          eslint: {configs: ['vitest']}
         },
         coverageResults
       )
