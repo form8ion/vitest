@@ -13,5 +13,5 @@ Then('jest-when is replaced with vitest-when', async function () {
   const {dependencies} = this.result;
 
   assert.include(dependencies.javascript.development, 'vitest-when');
-  assert.deepEqual(dependencies.javascript.remove, ['jest-when']);
+  assert.include(dependencies.javascript.remove, 'jest-when');
 });

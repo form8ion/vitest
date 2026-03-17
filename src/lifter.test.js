@@ -4,7 +4,7 @@ import {describe, it, expect, vi} from 'vitest';
 import {when} from 'vitest-when';
 import any from '@travi/any';
 
-import {scaffold as scaffoldCoverage} from './coverage/index.js';
+import {lift as liftCoverage} from './coverage/index.js';
 import {lift as liftCanary} from './canary/index.js';
 import {test as jetbrainsIdeInUse, scaffold as scaffoldRunConfiguration} from './run-configuration/index.js';
 import lift from './lifter.js';
@@ -20,7 +20,7 @@ describe('lifter', () => {
   it('should replace `vitest-when` with `vitest-when` and configure coverage', async () => {
     const coverageResults = any.simpleObject();
     const mergedResults = any.simpleObject();
-    when(scaffoldCoverage).calledWith().thenResolve(coverageResults);
+    when(liftCoverage).calledWith({projectRoot}).thenResolve(coverageResults);
     when(deepmerge)
       .calledWith({dependencies: {javascript: {development: ['vitest-when'], remove: ['jest-when']}}}, coverageResults)
       .thenReturn(mergedResults);
