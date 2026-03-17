@@ -2,7 +2,7 @@
 // remark-usage-ignore-next
 import stubbedFs from 'mock-fs';
 import {dialects} from '@form8ion/javascript-core';
-import {scaffold, test, lift} from './lib/index.mjs';
+import {scaffold, test, lift} from './lib/index.js';
 
 // remark-usage-ignore-next
 stubbedFs({templates: {'canary-test.js': '', 'config.js': ''}});

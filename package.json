@@ -12,8 +12,8 @@
   "bugs": "https://github.com/form8ion/vitest/issues",
   "homepage": "https://npm.im/@form8ion/vitest",
   "runkitExampleFilename": "./example.js",
-  "exports": "./lib/index.mjs",
-  "main": "./lib/index.mjs",
+  "exports": "./lib/index.js",
+  "main": "./lib/index.js",
   "sideEffects": false,
   "scripts": {
     "pretest": "run-s build",
