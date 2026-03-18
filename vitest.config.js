@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     restoreMocks: true,
     mockReset: true,
+    resetEnv: true,
     reporters: process.env.CI
       ? ['default', ['junit', {outputFile: 'test-report.junit.xml'}]]
       : ['default'],
