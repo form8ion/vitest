@@ -22,7 +22,8 @@ Then('vitest is configured using a {string} extension', async function (extensio
 export default defineConfig({
   test: {
     restoreMocks: true,
-    mockReset: true
+    mockReset: true,
+    resetEnv: true
   }
 });
 `
