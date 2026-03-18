@@ -10,7 +10,8 @@ export default defineConfig({
       : ['default'],
     coverage: {
       provider: 'v8',
-      include: ['src/**']
+      include: ['src/**'],
+      exclude: ['src/**/index.js']
     }
   }
 });
