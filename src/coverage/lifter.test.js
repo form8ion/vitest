@@ -18,7 +18,7 @@ describe('lift coverage', () => {
     const scaffoldResults = any.simpleObject();
     const c8RemovalResults = any.simpleObject();
     const mergedResults = any.simpleObject();
-    when(scaffoldCoverage).calledWith().thenResolve(scaffoldResults);
+    when(scaffoldCoverage).calledWith({projectRoot}).thenResolve(scaffoldResults);
     when(removeC8).calledWith({projectRoot}).thenResolve(c8RemovalResults);
     when(deepmerge).calledWith(scaffoldResults, c8RemovalResults).thenReturn(mergedResults);
 

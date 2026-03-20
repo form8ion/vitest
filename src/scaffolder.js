@@ -8,11 +8,12 @@ import {scaffold as scaffoldConfig} from './config/index.js';
 export default async function scaffoldVitest({projectRoot, dialect}) {
   await fs.mkdir(`${projectRoot}/src`, {recursive: true});
 
-  const [coverageResults] = await Promise.all([
-    scaffoldCoverage(),
+  await Promise.all([
     scaffoldCanary({projectRoot}),
     scaffoldConfig({projectRoot, dialect})
   ]);
+
+  const coverageResults = await scaffoldCoverage({projectRoot});
 
   return deepmerge(
     {

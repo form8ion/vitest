@@ -5,7 +5,7 @@ import scaffoldCoverage from './scaffolder.js';
 
 export default async function liftCoverage({projectRoot}) {
   const [removal, scaffolded] = await Promise.all([
-    scaffoldCoverage(),
+    scaffoldCoverage({projectRoot}),
     removeC8({projectRoot})
   ]);
 

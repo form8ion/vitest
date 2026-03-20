@@ -23,7 +23,7 @@ describe('scaffolder', () => {
     const dialect = any.word();
     const coverageResults = any.simpleObject();
     const mergedResults = any.simpleObject();
-    when(scaffoldCoverage).calledWith().thenResolve(coverageResults);
+    when(scaffoldCoverage).calledWith({projectRoot}).thenResolve(coverageResults);
     when(deepmerge)
       .calledWith(
         {

@@ -4,8 +4,16 @@ import stubbedFs from 'mock-fs';
 import {dialects} from '@form8ion/javascript-core';
 import {scaffold, test, lift} from './lib/index.js';
 
-// remark-usage-ignore-next
-stubbedFs({templates: {'canary-test.js': '', 'config.js': ''}});
+// remark-usage-ignore-next 9
+stubbedFs({
+  templates: {
+    'canary-test.js': '',
+    'config.js': `import {defineConfig} from 'vitest/config';
+
+export default defineConfig({test: {}});
+`
+  }
+});
 
 // #### Execute
 

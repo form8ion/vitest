@@ -5,6 +5,15 @@ extends:
   - '@form8ion/cucumber'
   - '@form8ion/vitest'
 
+rules:
+  'import/no-unresolved':
+    - error
+    - ignore:
+        - 'vitest/config'
+        - 'vitest-when'
+        - 'got'
+        - 'magicast/helpers'
+
 overrides:
   - files:
       - templates/canary-test.js
