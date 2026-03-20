@@ -13,7 +13,7 @@ export default async function scaffoldVitest({projectRoot, dialect}) {
 
   return {
     dependencies: {javascript: {development: ['vitest', 'vitest-when']}},
-    scripts: {'test:unit:base': 'DEBUG=any vitest run'},
+    scripts: {'test:unit:base': 'NODE_ENV=test DEBUG=any vitest run src/'},
     testFilenamePattern: 'src/**/*.test.js',
     eslint: {configs: ['vitest']}
   };

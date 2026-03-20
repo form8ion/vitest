@@ -4,5 +4,5 @@ import {assert} from 'chai';
 Then('scripts are defined', async function () {
   const {scripts} = this.result;
 
-  assert.equal(scripts['test:unit:base'], 'DEBUG=any vitest run');
+  assert.equal(scripts['test:unit:base'], 'NODE_ENV=test DEBUG=any vitest run src/');
 });
