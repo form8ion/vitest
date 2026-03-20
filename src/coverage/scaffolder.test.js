@@ -13,7 +13,10 @@ describe('coverage scaffolder', () => {
 
     expect(await scaffoldCoverage({projectRoot})).toEqual({
       dependencies: {javascript: {development: ['@vitest/coverage-v8']}},
-      scripts: {'test:unit': "run-s 'test:unit:base -- --coverage'"},
+      scripts: {
+        'test:unit': "run-s 'test:unit:base -- --coverage'",
+        'test:unit:base': 'NODE_ENV=test DEBUG=any vitest run src/'
+      },
       vcsIgnore: {directories: ['/coverage/']},
       eslint: {ignore: {directories: ['/coverage/']}}
     });

@@ -18,6 +18,7 @@ Then('built-in coverage should be enabled', async function () {
 
   assert.include(dependencies.javascript.development, '@vitest/coverage-v8');
   assert.equal(scripts['test:unit'], "run-s 'test:unit:base -- --coverage'");
+  assert.equal(scripts['test:unit:base'], 'NODE_ENV=test DEBUG=any vitest run src/');
   assert.include(vcsIgnore.directories, '/coverage/');
   assert.include(eslint.ignore.directories, '/coverage/');
 
