@@ -11,6 +11,7 @@ describe('coverage config adder', () => {
 
     expect(optionsAst.test.coverage).toEqual({
       provider: 'v8',
+      reporter: ['lcov', 'text-summary', 'html'],
       include: ['src/**'],
       exclude: ['src/**/index.js']
     });

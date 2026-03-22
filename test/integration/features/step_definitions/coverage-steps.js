@@ -23,6 +23,7 @@ Then('built-in coverage should be enabled', async function () {
   assert.include(eslint.ignore.directories, '/coverage/');
 
   assert.equal(coverage.provider, 'v8');
+  assert.deepEqual(coverage.reporter, ['lcov', 'text-summary', 'html']);
   assert.deepEqual(coverage.include, ['src/**']);
   assert.deepEqual(coverage.exclude, ['src/**/index.js']);
 });
