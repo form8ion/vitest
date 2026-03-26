@@ -11,7 +11,9 @@ export default async function scaffoldRunConfiguration({projectRoot}) {
     <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
     <working-dir value="$PROJECT_DIR$" />
     <vitest-options value="--run" />
-    <envs />
+    <envs>
+      <env name="NODE_ENV" value="test" />
+    </envs>
     <scope-kind value="DIRECTORY" />
     <test-directory value="$PROJECT_DIR$/src" />
     <method v="2" />
